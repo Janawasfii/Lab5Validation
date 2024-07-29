@@ -17,9 +17,8 @@ import java.util.ArrayList;
 public class TrackerController {
     ArrayList<Tracker> trackers = new ArrayList<Tracker>();
 @GetMapping("/get")
-    public ArrayList<Tracker> getTrackers() {
-    return trackers;
-}
+    public ResponseEntity getTrackers() {
+    return ResponseEntity.status(200).body(trackers);
 @PostMapping("/add")
     public ResponseEntity addTracker(@Valid @RequestBody Tracker tracker, Errors errors) {
     if (errors.hasErrors()) {
