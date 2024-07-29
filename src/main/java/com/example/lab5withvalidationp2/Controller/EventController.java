@@ -14,9 +14,9 @@ import java.util.Optional;
 @RequestMapping("/api/v1/event")
 public class EventController {
 ArrayList<Event> events = new ArrayList<Event>();
- @GetMapping("/get")
-  public ArrayList<Event> getEvents() {
- return events;}
+@GetMapping("/get")
+  public ResponseEntity getEvents() {
+ return ResponseEntity.status(200).body(events);}
 
 @PostMapping("/add")
 public ResponseEntity addEvent(@Valid @RequestBody Event event, Errors errors) {
