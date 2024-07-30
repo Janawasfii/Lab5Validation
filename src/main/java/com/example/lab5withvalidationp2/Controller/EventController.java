@@ -28,7 +28,7 @@ public ResponseEntity addEvent(@Valid @RequestBody Event event, Errors errors) {
     return ResponseEntity.status(200).body("Successfully added event");
 }
 @PutMapping("/update/{index}")
-    public ResponseEntity updateEvent(@Valid @RequestBody Event event, Errors errors, @PathVariable int index) {
+    public ResponseEntity updateEvent(@PathVariable int index, @Valid @RequestBody Event event, Errors errors) {
      if (errors.hasErrors()) {
          String message = errors.getFieldError().getDefaultMessage();
          return ResponseEntity.status(400).body(message);
